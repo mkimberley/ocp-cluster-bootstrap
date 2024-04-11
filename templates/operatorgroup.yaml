@@ -1,0 +1,9 @@
+{{- range .Values.subscriptions }}
+apiVersion: operators.coreos.com/v1alpha2
+kind: OperatorGroup
+metadata:
+  name: {{ .name }}
+  namespace: {{ .namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+{{- end }}
